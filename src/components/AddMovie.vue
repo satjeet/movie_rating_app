@@ -71,10 +71,17 @@ export default {
           },
         })
           .then(() => {
+            this.$swal('Genial!', 'La pelicula se agrego exitosamente!', 'success');
             this.$router.push({ name: 'Home' });
             this.$refs.form.reset();
           })
-          .catch(() => {});
+          .catch(() => {
+            this.$swal(
+              'Confiaste en mi... y te falle!',
+              'No pudimos agregar la pelicula!',
+              'error',
+            );
+          });
       }
       return true;
     },
