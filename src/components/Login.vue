@@ -23,6 +23,7 @@
 
 <script>
 import axios from 'axios';
+import bus from './../bus';
 
 export default {
   data: () => ({
@@ -50,6 +51,7 @@ export default {
         .then((response) => {
           window.localStorage.setItem('auth', response.data.token);
           this.$swal('Genial!', 'Ya puedes comenzar!', 'success');
+          bus.$emit('refreshUser');
           this.$router.push({ name: 'Home' });
         })
         .catch((error) => {

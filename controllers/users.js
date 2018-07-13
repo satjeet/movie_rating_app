@@ -1,6 +1,7 @@
 const User = require("../models/User");
 const config = require('./../config/Config');
 const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
 
 module.exports.controller = (app) => {
   // local strategy
