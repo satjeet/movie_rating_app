@@ -15,6 +15,8 @@ jwtOptions.secretOrKey = 'movieratingapplicationsecretkey';
 
 const app = express();
 const router = express.Router();
+const serveStatic = require('serve-static');
+
 app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(cors());
@@ -36,6 +38,8 @@ fs.readdirSync("controllers").forEach(function (file) {
     route.controller(app)
   }
 })
+
+app.use(serveStatic(__dirname + "/dist"));
 
 router.get('/', function(req, res) {
   res.json({ message: 'API Initialized!'});

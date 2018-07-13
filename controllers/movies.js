@@ -1,8 +1,14 @@
 const MovieSchema = require('../models/Movie.js');
 const Rating = require("../models/Rating");
+const passport = require('passport');
+
+
 module.exports.controller = (app) => {
-  // fetch all movies
-  app.get('/movies', (req, res) => {
+    // fetch all movies
+app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
+
+//le agregamos autentificacion a este controlador
+//  app.get('/movies', (req, res) => {
     MovieSchema.find({}, 'name description release_year genre', (error, movies) => {
       if (error) {
         console.log(error);
@@ -33,9 +39,9 @@ module.exports.controller = (app) => {
            movie_id: rating.movie_id,
            user_id: rating.user_id,
            rate: rating.rate
-         })
-       })
-     })
+         });
+       });
+     });
   // add a new movie
   app.post('/movies', (req, res) => {
     const newMovie = new MovieSchema({
@@ -43,8 +49,7 @@ module.exports.controller = (app) => {
       description: req.body.description,
       release_year: req.body.release_year,
       genre: req.body.genre,
-    });
-
+    })
     newMovie.save((error, movie) => {
       if (error) {
         console.log(error);
