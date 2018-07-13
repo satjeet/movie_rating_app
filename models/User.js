@@ -23,3 +23,17 @@ module.exports.createUser = (newUser, callback) => {
     });
   });
 };
+
+//obtener el usuario completo buscando por el correo
+module.exports.getUserByEmail = (email, callback) => {
+  const query = { email };
+  User.findOne(query, callback);
+};
+
+//Comparar la password con la guardada en la base de datos,true or false
+module.exports.comparePassword = (candidatePassword, hash, callback) => {
+  bcryptjs.compare(candidatePassword, hash, (err, isMatch) => {
+    if (err) throw err;
+    callback(null, isMatch);
+  });
+};
