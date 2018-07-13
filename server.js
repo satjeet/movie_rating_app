@@ -13,6 +13,7 @@ const jwtOptions = {}
 jwtOptions.jwtFromRequest = ExtractJwt.fromAuthHeaderWithScheme('jwt');
 jwtOptions.secretOrKey = 'movieratingapplicationsecretkey';
 
+const history = require('connect-history-api-fallback');
 const app = express();
 const router = express.Router();
 const serveStatic = require('serve-static');
@@ -39,6 +40,7 @@ fs.readdirSync("controllers").forEach(function (file) {
   }
 })
 
+app.use(history());
 app.use(serveStatic(__dirname + "/dist"));
 
 router.get('/', function(req, res) {
