@@ -23,7 +23,7 @@
       </v-btn>
       <v-btn @click="clear">clear</v-btn>
     </v-form>
-  </div>  
+  </div>
 </template>
 
 <script>
