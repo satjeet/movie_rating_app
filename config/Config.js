@@ -6,5 +6,7 @@ module.exports = {
   TWITTER_APP_ID: 'ZMcIRcdnsKwKf6hry0E7H9VkU',
   TWITTER_APP_SECRET: 'tXFlsfIJiA08KNBtA1ZrnZbL4vc3aKDsW8aKg4oLEkfLwf4V22',
   GOOGLE_APP_ID: '596392263699-d8bddor7ld143kc7v7554m8s33cjurd4.apps.googleusercontent.com',
-  GOOGLE_APP_SECRET: 'll5FRfAJThM-bZ5EiTbOkXan'
+  GOOGLE_APP_SECRET: 'll5FRfAJThM-bZ5EiTbOkXan',
+  LINKEDIN_APP_ID: '78nwllunttgoh4',
+  LINKEDIN_APP_SECRET: 'rANgRVrGxOC1Vvkt',
 }

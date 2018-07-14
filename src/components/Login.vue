@@ -4,6 +4,7 @@
       <a class="btn facebook" href="/login/facebook"> LOGIN WITH FACEBOOK</a>
       <a class="btn twitter" href="/login/twitter"> LOGIN WITH TWITTER</a>
       <a class="btn google" href="/login/google"> LOGIN WITH GOOGLE</a>
+      <a class="btn linkedin" href="/login/linkedin"> LOGIN WITH LINKEDIN</a>
     </div>
     <v-form v-model="valid" ref="form" lazy-validation>
       <v-text-field
