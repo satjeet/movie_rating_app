@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+// import axios from 'axios';
 
 export default {
   data: () => ({
@@ -56,6 +56,7 @@ export default {
   }),
   methods: {
     submit() {
+      /*
       if (this.$refs.form.validate()) {
         return axios({
           method: 'post',
@@ -83,6 +84,24 @@ export default {
             );
           });
       }
+      */
+      if (this.$refs.form.validate()) {
+        const movie = {
+          name: this.name,
+          description: this.description,
+          release_year: this.release_year,
+          genre: this.genre,
+        };
+        this.$store.dispatch('addMovie', movie);
+        this.$swal(
+          'Great!',
+          'Movie added successfully!',
+          'success',
+        );
+        this.$refs.form.reset();
+        this.$router.push({ name: 'Home' });
+      }
+
       return true;
     },
     clear() {

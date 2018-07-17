@@ -21,18 +21,28 @@
 </template>
 
 <script>
-import axios from 'axios';
+// import axios from 'axios';
 
 export default {
   name: 'Movies',
+  computed: {
+    movies() {
+      return this.$store.getters.fetchMovies;
+    },
+  },
+  mounted() {
+  //  this.fetchMovies();
+    this.$store.dispatch('fetchMovies');
+  },
+  /*
   data() {
     return {
       movies: [],
     };
   },
-  mounted() {
-    this.fetchMovies();
-  },
+  */
+
+  /*
   methods: {
     async fetchMovies() {
       const token = window.localStorage.getItem('auth');
@@ -52,6 +62,7 @@ export default {
         });
     },
   },
+  */
 };
 </script>
 
